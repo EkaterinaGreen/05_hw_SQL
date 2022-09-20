@@ -1,6 +1,4 @@
-from configparser import ConfigParser
 import psycopg2
-from typing import Dict
 
 def create_db(conn):
     #Создание таблицы основных клиентских данных
@@ -134,7 +132,6 @@ def find_client():
             LEFT JOIN client_phones AS cp ON cp.id_phonenumber = ch5.id
             WHERE client_phonenumber=%s
             """, (input_phonenumber_for_finding,))
-            #return cur.fetchone()[0]
             print(cur.fetchall())
         else:
             print("К сожалению, Вы ввели неправильную команду, пожалуйста, повторите ввод")
